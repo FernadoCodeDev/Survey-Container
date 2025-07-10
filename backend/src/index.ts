@@ -1,30 +1,15 @@
 import express from 'express';
-import { PrismaClient } from '@prisma/client';
-//import dotenv from "dotenv"
+//import dotenv from 'dotenv';
+import surveyRoutes from './routes/survey.routes'; 
 
-//dotenv.config(); 
-
-const prisma = new PrismaClient();
+//dotenv.config();
 const app = express();
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('API funcionando 🚀');
-});
+app.get('/', (req, res) => res.send('API funcionando 🚀'));
 
-app.get('/surveys', async (req, res) => {
-  try {
-    const surveys = await prisma.encuesta.findMany({
-      include: { preguntas: true },
-    });
-    res.json(surveys);
-  } catch (error) {
-    console.error('Error al obtener surveys:', error);
-    res.status(500).json({ error: 'Error al obtener surveys' });
-  }
-});
-
+app.use('/api', surveyRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
