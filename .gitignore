@@ -7,6 +7,10 @@ backend/dist
 sdk/dist
 demo-app/dist
 
+backend/prisma/dev.db
+backend/prisma/migrations
+backend/.env
+
 
 *.log
 npm-debug.log*

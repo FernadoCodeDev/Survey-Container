@@ -1,0 +1,34 @@
+// Fuente de datos (usamos SQLite)
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Prisma Client JS
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Modelos
+
+model Encuesta {
+  id        String    @id @default(uuid())
+  titulo    String
+  preguntas Pregunta[]
+}
+
+model Pregunta {
+  id         String   @id @default(uuid())
+  texto      String
+  encuestaId String
+  encuesta   Encuesta @relation(fields: [encuestaId], references: [id])
+  respuestas Respuesta[]
+}
+
+model Respuesta {
+  id         String   @id @default(uuid())
+  preguntaId String
+  valor      String
+  createdAt  DateTime @default(now())
+  pregunta   Pregunta @relation(fields: [preguntaId], references: [id])
+}
