@@ -13,15 +13,15 @@ app.get('/', (req, res) => {
   res.send('API funcionando 🚀');
 });
 
-app.get('/encuestas', async (req, res) => {
+app.get('/surveys', async (req, res) => {
   try {
     const surveys = await prisma.encuesta.findMany({
       include: { preguntas: true },
     });
     res.json(surveys);
   } catch (error) {
-    console.error('Error al obtener encuestas:', error);
-    res.status(500).json({ error: 'Error al obtener encuestas' });
+    console.error('Error al obtener surveys:', error);
+    res.status(500).json({ error: 'Error al obtener surveys' });
   }
 });
 

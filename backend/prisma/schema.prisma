@@ -1,4 +1,5 @@
-// Fuente de datos (usamos SQLite)
+//SQLite
+
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
@@ -9,7 +10,7 @@ generator client {
   provider = "prisma-client-js"
 }
 
-// Modelos
+
 
 model Encuesta {
   id        String    @id @default(uuid())
