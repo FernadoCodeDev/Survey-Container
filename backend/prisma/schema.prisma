@@ -28,8 +28,7 @@ model Pregunta {
 
 model Respuesta {
   id         String   @id @default(uuid())
+  contenido  String
   preguntaId String
-  valor      String
-  createdAt  DateTime @default(now())
   pregunta   Pregunta @relation(fields: [preguntaId], references: [id])
 }
