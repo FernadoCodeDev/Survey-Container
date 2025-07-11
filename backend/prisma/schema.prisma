@@ -10,25 +10,23 @@ generator client {
   provider = "prisma-client-js"
 }
 
-
-
-model Encuesta {
+model Survey {
   id        String    @id @default(uuid())
-  titulo    String
-  preguntas Pregunta[]
+  qualification    String
+  questions Question[]
 }
 
-model Pregunta {
-  id         String   @id @default(uuid())
-  texto      String
-  encuestaId String
-  encuesta   Encuesta @relation(fields: [encuestaId], references: [id])
-  respuestas Respuesta[]
+model Question {
+  id String @id @default(uuid())
+  text String
+  surveyId String
+  survey Survey @relation(fields: [surveyId], references: [id])
+  answers Response[]
 }
 
-model Respuesta {
-  id         String   @id @default(uuid())
-  contenido  String
-  preguntaId String
-  pregunta   Pregunta @relation(fields: [preguntaId], references: [id])
+model Response { 
+  id String @id @default(uuid())
+  content String
+  questionId String
+  question Question @relation(fields: [questionId], references: [id])
 }

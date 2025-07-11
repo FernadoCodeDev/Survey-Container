@@ -1,74 +1,104 @@
-import { Request, Response } from "express";
-import { prisma } from "../prisma/client";
+import { prisma } from '../prisma/client'; 
+import { Request, Response } from 'express';
 
+// GET /surveys
 export const getSurveys = async (req: Request, res: Response) => {
   try {
-    const surveys = await prisma.encuesta.findMany({
-      include: { preguntas: true },
+    const surveys = await prisma.survey.findMany({
+      include: { questions: true },
     });
 
     res.json(surveys);
   } catch (error) {
-    console.error("Error al obtener encuestas:", error);
-    res.status(500).json({ error: "Error al obtener encuestas" });
+    console.error("Error getting surveys:", error);
+    res.status(500).json({ error: error instanceof Error ? error.message : error });
   }
 };
 
+// POST /surveys
 export const createSurvey = async (req: Request, res: Response) => {
   try {
-    const { titulo, preguntas } = req.body;
+    const { qualification, questions } = req.body;
 
-    if (!titulo || !Array.isArray(preguntas)) {
-      return res
-        .status(400)
-        .json({ error: "Título y preguntas son requeridos" });
+    if (!qualification || !Array.isArray(questions)) {
+      return res.status(400).json({ error: "Title and questions are required" });
     }
 
-    const newSurvey = await prisma.encuesta.create({
-      data: {
-        titulo,
-        preguntas: {
-          create: preguntas.map((p) => ({
-            texto: p.texto,
+    const newSurvey = await prisma.survey.create({
+      data: { 
+        qualification,
+        questions: {
+          create: questions.map((q) => ({
+            text: q.text,
           })),
         },
       },
       include: {
-        preguntas: true,
+        questions: true,
       },
     });
 
     res.status(201).json(newSurvey);
   } catch (error) {
-    console.error("Error al crear encuesta:", error);
-    res.status(500).json({ error: "Error al crear encuesta" });
+    console.error("Error creating survey:", error);
+    res.status(500).json({ error: error instanceof Error ? error.message : error });
   }
 };
 
+// POST /responses
 export const createResponses = async (req: Request, res: Response) => {
   try {
-    const { respuestas } = req.body;
+    const { responses } = req.body;
 
-    if (!Array.isArray(respuestas)) {
-      return res.status(400).json({ error: 'respuestas debe ser un array' });
+    if (!Array.isArray(responses)) {
+      return res.status(400).json({ error: "responses must be an array" });
     }
 
-    for (const r of respuestas) {
-      if (!r.preguntaId || !r.contenido) {
-        return res.status(400).json({ error: 'Cada respuesta debe tener preguntaId y contenido' });
+    for (const r of responses) {
+      if (!r.questionId || !r.content) {
+        return res.status(400).json({ error: "Each response must have a questionId and content" });
       }
     }
 
-    const Newanswers = await prisma.respuesta.createMany({
-      data: respuestas.map(r => ({
-        preguntaId: r.preguntaId,
-        contenido: r.contenido,
-      }))
+    const newAnswers = await prisma.response.createMany({
+      data: responses.map((r: { questionId: string; content: string }) => ({
+        questionId: r.questionId,
+        content: r.content,
+      })),
     });
 
-    res.status(201).json({ mensaje: 'Respuestas guardadas correctamente', Newanswers });
+    res.status(201).json({ message: "Responses saved successfully", newAnswers });
   } catch (error) {
-    console.error('Error al guardar respuestas:', error);
+    console.error("Error saving responses:", error);
+    res.status(500).json({ error: error instanceof Error ? error.message : error });
+  }
+};
+
+// GET /metrics/:id
+export const getMetrics = async (req: Request, res: Response) => {
+  const surveyId = req.params.id;
+
+  try {
+    const questions = await prisma.question.findMany({
+      where: { surveyId },
+    });
+
+    const results = await Promise.all(
+      questions.map(async (question) => {
+        const total = await prisma.response.count({
+          where: { questionId: question.id },
+        });
+
+        return {
+          question: question.text,
+          totalAnswers: total,
+        };
+      })
+    );
+
+    res.json(results);
+  } catch (error) {
+    console.error("Error getting metrics:", error);
     res.status(500).json({ error: error instanceof Error ? error.message : error });
   }
 };
