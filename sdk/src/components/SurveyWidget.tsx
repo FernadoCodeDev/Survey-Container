@@ -20,6 +20,9 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
       .then((data) => {
         const surveyFound = data.find((e: Survey) => e.id === surveyId);
         setSurvey(surveyFound || null);
+      })
+      .catch((error) => {
+        console.error("Error al hacer fetch:", error);
       });
   }, [surveyId, apiUrl]);
 
@@ -52,8 +55,7 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
     <div className="p-4 border rounded shadow max-w-md bg-white">
       <h2 className="text-lg font-semibold mb-4">{survey.text}</h2>
 
-      {survey.questions.map((p) => (  
-       
+      {survey.questions.map((p) => (
         <div key={p.id} className="mb-3">
           <label className="block text-sm font-medium mb-1">{p.text}</label>
           <input
