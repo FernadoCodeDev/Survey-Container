@@ -1,6 +1,5 @@
 import express from 'express';
-import cors from 'cors';
-
+import cors from 'cors'; 
 import surveyRoutes from './routes/survey.routes'; 
 
 const app = express();
