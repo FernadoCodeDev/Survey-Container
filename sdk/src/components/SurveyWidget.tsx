@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import type { Survey, Response } from "../types";
 
-import dotenv from "dotenv";
+/*import dotenv from "dotenv";
 dotenv.config();
-
+*/
 interface SurveyWidgetProps {
   surveyId: string;
   apiUrl?: string;
@@ -33,10 +33,14 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
   };
 
   const handleSubmit = async () => {
-    const payload = Object.entries(responses).map(([questionId, content]) => ({
-      questionId,
-      content,
-    }));
+    const payload = Object.entries(responses)
+      .map(([questionId, content]) => ({ questionId, content: content.trim() }))
+      .filter((r) => r.content.length > 0); // 💡 evita vacíos
+
+    if (payload.length < survey?.questions.length) {
+      alert("Por favor responde todas las preguntas");
+      return;
+    }
 
     const res = await fetch(`${apiUrl}/responses`, {
       method: "POST",
@@ -54,7 +58,13 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
   if (!survey) return <p>Loading survey...</p>;
 
   return (
-    <div className="p-8 bg-red-500">
+    <form
+      onSubmit={(e) => {
+        e.preventDefault(); 
+        handleSubmit(); 
+      }}
+      className="flex flex-col gap-4 p-4 m-4 bg-red-500"
+    >
       <h2 className="mb-4 text-lg font-semibold">{survey.text}</h2>
 
       {survey.questions.map((p) => (
@@ -62,20 +72,21 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
           <label className="block mb-1 text-sm font-medium">{p.text}</label>
           <input
             type="text"
+            name={`question-${p.id}`}
+            required 
             className="w-full px-2 py-1 border rounded"
             value={responses[p.id] || ""}
             onChange={(e) => handleChange(p.id, e.target.value)}
-            required
           />
         </div>
       ))}
 
       <button
-        onClick={handleSubmit}
+        type="submit"
         className="px-4 py-2 m-4 text-white bg-blue-600 rounded hover:bg-blue-700"
       >
         Send responses
       </button>
-    </div>
+    </form>
   );
 };
