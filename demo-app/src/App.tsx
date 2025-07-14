@@ -1,9 +1,9 @@
 import React from "react";
-import { SurveyWidget } from "../../sdk/src";
+import { SurveyWidget } from "../../sdk/src/components/SurveyWidget";
 
 const App: React.FC = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center gap-12 m-auto bg-white">
       <SurveyWidget
         surveyId={import.meta.env.VITE_SURVEY_ID}
       />
