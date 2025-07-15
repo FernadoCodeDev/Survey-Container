@@ -1,3 +1,79 @@
+/*
+Styles for SurveyWidget.tsx in the SDK (sdk/src/components/SurveyWidget.tsx)
+
+This is because the SDK cannot compile Tailwind's CSS styles, 
+and the demo app generates its own styles. The demo app does process 
+the styles when it compiles, as the classes included in Tailwind's 
+SurveyWidget.tsx do not compile because demo-app sees it as an imported 
+package and does not scan the classes thoroughly.
+
+*/
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.survey-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;           
+  padding: 1rem;      
+  margin: 1rem;        
+}
+
+.survey-title {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;   
+  font-weight: 600;     
+}
+
+.survey-question {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;             
+}
+
+.survey-label {
+  display: block;
+  margin-bottom: 0.25rem; 
+  font-size: 0.875rem;    
+  font-weight: 500;      
+}
+
+.survey-input {
+  width: 100%;
+  padding: 0.25rem 0.5rem;  
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+.survey-button {
+  margin: 1rem;
+  padding: 0.5rem 1rem;        
+  color: white;
+  background-color: #2563eb;   
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.survey-button:hover {
+  background-color: #1d4ed8;  
+}
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
