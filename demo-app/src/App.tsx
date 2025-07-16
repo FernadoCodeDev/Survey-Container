@@ -3,7 +3,7 @@ import { SurveyWidget } from "../../sdk/src";
 
 const App: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center m-auto bg-white">
+    <div className="flex flex-col items-center justify-center m-auto max-w-[60rem] ">
       <SurveyWidget
         surveyId={import.meta.env.VITE_SURVEY_ID}
       />
