@@ -117,7 +117,7 @@ Esto creará automáticamente el archivo dev.db (base de datos SQLite) basado en
 npx prisma studio
 ```
 
-###🚀 Iniciar el servidor
+### 🚀 Iniciar el servidor
 
 - entra a la carpeta backend 
 
