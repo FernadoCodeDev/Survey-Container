@@ -1,6 +1,8 @@
 # **Survey Container** 
 ![SurveyContainer](https://github.com/FernadoCodeDev/Survey-Container/blob/main/Img-Readme/SurveyContainer.png)
 
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
 
 # 📦 Survey Container
 
