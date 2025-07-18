@@ -99,33 +99,38 @@ Para configurar la base de datos con SQLite, asegúrate de tener el archivo sche
 
 1. Instala dependencias:
 
-```bash
+```
 npm install
+```
 
 2. Genera el cliente Prisma y crea la base de datos:
 
-```bash
+```
 npx prisma generate
 npx prisma db push
+```
 
 Esto creará automáticamente el archivo dev.db (base de datos SQLite) basado en el esquema.
 
 3. Para ver tu base de datos ve a Prisma Studio:
 
-```bash
+```
 npx prisma studio
+```
 
 ###🚀 Iniciar el servidor
 
 - entra a la carpeta backend 
 
-```bash
+```
 cd backend 
+```
 
 e inicia el servidor 
 
-```bash
+```
 npm run dev
+```
 
 ### 🌐 Rutas disponibles
 Estas rutas están definidas dentro de la carpeta `src/routes` y cada una se conecta con su respectivo controlador (`src/controllers`):
