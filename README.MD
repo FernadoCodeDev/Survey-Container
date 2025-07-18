@@ -23,13 +23,6 @@ Survey Container es un sistema de encuestas interno pensado para integrarse fác
 
 ### ⚙️ Tecnologías utilizadas
 
-- Frontend SDK: React, TypeScript, Vite
-- Backend: Node.js, Express, TypeScript
-- Base de datos: SQLite
-
-
-[![My Skills](https://skillicons.dev/icons?i=react,typescript,nodejs,express,sqlite)](https://skillicons.dev)
-
 **Front-End** | **Back-End** | **Bases de Datos** | 
 :---: | :---: | :---: |
 <img src="https://skillicons.dev/icons?i=react,typescript" alt="frontend Skills" /> |<img src="https://skillicons.dev/icons?i=nodejs,express" alt="Backend Skills" /> | <img src="https://skillicons.dev/icons?i=sqlite" alt="Databases Skills" /> |
@@ -64,7 +57,6 @@ Incluye la API que gestiona encuestas, respuestas y métricas.
 
 ![aaa](https://github.com/FernadoCodeDev/Project-React-Ty-Node/blob/main/Img-Readme/Readme-Image-2.png)
 
-
 <details />
 
 <details>
@@ -74,8 +66,6 @@ Incluye la API que gestiona encuestas, respuestas y métricas.
 
 <details>
 <summary>API</summary>
-
 <details />
-
 
 
