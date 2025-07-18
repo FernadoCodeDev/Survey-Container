@@ -27,6 +27,16 @@ Survey Container es un sistema de encuestas interno pensado para integrarse fác
 :---: | :---: | :---: |
 <img src="https://skillicons.dev/icons?i=react,typescript" alt="frontend Skills" /> |<img src="https://skillicons.dev/icons?i=nodejs,express" alt="Backend Skills" /> | <img src="https://skillicons.dev/icons?i=sqlite" alt="Databases Skills" /> |
 
+### 🧪 Cómo probar Survey-Container
+- clona el repositorio
+- instala las dependencias de cada carpeta
+
+        ```
+    cd backend && npm install
+    cd sdk && npm install
+    cd demo-app && npm install
+
+
 ---
 
 ## 📁 Estructura del proyecto
