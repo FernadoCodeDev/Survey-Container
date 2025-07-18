@@ -33,18 +33,21 @@ Survey Container es un sistema de encuestas interno pensado para integrarse fác
 
 **Backend**
 
-```bash
+```
 cd backend && npm install
+```
 
 **demo-app** 
 
-```bash
+```
 cd demo-app && npm install
+```
 
 **sdk**
 
-```bash
+```
 cd sdk && npm install
+```
 
 ---
 
@@ -57,7 +60,7 @@ El backend está desarrollado con **Node.js**, usando el framework **Express** y
 
 ### 📦 Estructura general
 
-```bash
+```
 /backend
 │
 ├── prisma/
@@ -74,6 +77,7 @@ El backend está desarrollado con **Node.js**, usando el framework **Express** y
 ├── .env ← Variables de entorno
 ├── package.json
 └── tsconfig.json
+```
 
 
 ## 📝 **Nota:** Las carpetas `dist/` y `node_modules/` se excluyen porque se generan automáticamente al compilar y al instalar dependencias.
@@ -85,8 +89,9 @@ Aquí se declaran las **tablas** (o modelos) como `Survey`, `Question`, `Respons
 
 También puedes correr el siguiente comando para abrir una interfaz visual de la base de datos:
 
-```bash
+```
 npx prisma studio
+```
 
 ### 🛠️ Configuración de la base de datos
 
