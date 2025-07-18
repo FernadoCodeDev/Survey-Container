@@ -52,20 +52,20 @@ Incluye la API que gestiona encuestas, respuestas y métricas.
 <details>
 <summary>demo-app</summary>
 
-
 ![aa](https://github.com/FernadoCodeDev/Project-React-Ty-Node/blob/main/Img-Readme/Readme-Image-1.png)
 
 ![aaa](https://github.com/FernadoCodeDev/Project-React-Ty-Node/blob/main/Img-Readme/Readme-Image-2.png)
 
-<details />
+</details>
 
 <details>
 <summary>sdk</summary>
 
-<details />
+</details>
 
 <details>
 <summary>API</summary>
-<details />
+
+</details>
 
 
