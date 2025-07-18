@@ -135,24 +135,18 @@ npm run dev
 ### 🌐 Rutas disponibles
 Estas rutas están definidas dentro de la carpeta `src/routes` y cada una se conecta con su respectivo controlador (`src/controllers`):
 
-**Método* | **Ruta** | **Descripción** | 
-:---: | :---: | :---: |
-GET  | `/api/surveys/:id` | Obtener una encuesta por su ID |
+| **Método** | **Ruta**                  | **Descripción**                         |
+|:----------:|:--------------------------|:----------------------------------------|
+| GET        | `/api/surveys/:id`        | Obtener una encuesta por su ID          |
+| POST       | `/api/responses`          | Enviar respuestas de encuesta           |
+| GET        | `/api/metrics/:surveyId`  | Ver métricas agrupadas por pregunta     |
 
-**Método* | **Ruta** | **Descripción** | 
-:---: | :---: | :---: |
-POST  | `/api/responses` | Enviar respuestas de encuesta |
-
-**Método* | **Ruta** | **Descripción** | 
-:---: | :---: | :---: |
-GET  | `/api/metrics/:surveyId` | Ver métricas agrupadas por pregunta |
 
 ### 📂 Explicación por carpetas
 - `controllers/`: Aquí se encuentran las funciones que manejan la lógica de cada endpoint, como obtener encuestas, registrar respuestas y calcular métricas.
 - `routes/`: Define las rutas del API y las conecta con los controladores correspondientes.
 - `prisma/client.ts`: Archivo que crea y exporta una instancia de PrismaClient. Se importa en los controladores para acceder a la base de datos.
 - `index.ts`: Archivo principal que levanta el servidor Express y configura middlewares básicos.
-
 
 </details>
 
