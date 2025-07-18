@@ -57,7 +57,7 @@ El backend está desarrollado con **Node.js**, usando el framework **Express** y
 
 ### 📦 Estructura general
 
-     ```
+```bash
 /backend
 │
 ├── prisma/
