@@ -31,12 +31,21 @@ Survey Container es un sistema de encuestas interno pensado para integrarse fác
 - clona el repositorio
 - instala las dependencias de cada carpeta
 
+**Backend**
 
         ```
         cd backend && npm install
-        cd sdk && npm install
+
+**demo-app** 
+
+        ```
+
         cd demo-app && npm install
 
+**sdk**
+
+       ```
+        cd sdk && npm install
 
 ---
 
