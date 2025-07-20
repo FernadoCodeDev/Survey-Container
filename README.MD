@@ -304,7 +304,7 @@ Dentro de src/types/index.ts se definen las siguientes interfaces:
 
 ### 📁 Exportación del componente
 
-El componente se exporta desde src/index.ts para poder importarlo directamente desde cualquier proyecto:
+El componente se exporta desde `src/index.ts` para poder importarlo directamente desde cualquier proyecto:
 
 ```
 export { SurveyWidget } from './components/SurveyWidget';
