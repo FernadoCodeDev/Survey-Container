@@ -207,15 +207,11 @@ El enrutamiento se define así en `main.tsx`:
 ```
 
 ### 🧪 Funcionalidad principal
-Al iniciar la aplicación, se listan todas las encuestas disponibles (imagen de referencia incluida).
-
-Cada encuesta muestra sus preguntas y un botón “Contestar encuesta” que redirige a /survey/:surveyId.
-
-Desde esa vista puedes completar y enviar tus respuestas.
-
-La interfaz es simple, priorizando la funcionalidad por encima del diseño visual.
-
-También puedes probar la vista de encuesta manualmente desde /app ingresando un ID válido.
+- Al iniciar la aplicación, se listan todas las encuestas disponibles (imagen de referencia incluida).
+- Cada encuesta muestra sus preguntas y un botón “Contestar encuesta” que redirige a /survey/:surveyId.
+- Desde esa vista puedes completar y enviar tus respuestas.
+- La interfaz es simple, priorizando la funcionalidad por encima del diseño visual.
+- También puedes probar la vista de encuesta manualmente desde /app ingresando un ID válido.
 
 ### 🔐 Seguridad
 La app está diseñada para prevenir inyecciones SQL en los campos de entrada.
@@ -224,7 +220,6 @@ La app está diseñada para prevenir inyecciones SQL en los campos de entrada.
 ### 🎨 Estilos
 El archivo de estilos principal es `src/index.css`.
 
-> [!IMPORTANT]
 > Debido a que el SDK no compila directamente con Tailwind CSS, en esta app se usan estilos personalizados con CSS nativo.
 
 Dentro de `index.css` encontrarás un comentario explicando por qué se optó por esta estrategia en lugar de usar Tailwind.
