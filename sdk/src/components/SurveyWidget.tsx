@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import type { Survey, Response } from "../types";
 import '../../../demo-app/src/index.css';
-
-
-/*import dotenv from "dotenv";
-dotenv.config();
-*/
 interface SurveyWidgetProps {
   surveyId: string;
   apiUrl?: string;
@@ -37,7 +32,7 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
   const handleSubmit = async () => {
     const payload = Object.entries(responses)
       .map(([questionId, content]) => ({ questionId, content: content.trim() }))
-      .filter((r) => r.content.length > 0); // 💡 evita vacíos
+      .filter((r) => r.content.length > 0); //Avoid sending empty fields
 
     if (payload.length < survey?.questions.length) {
       alert("Por favor responde todas las preguntas");
