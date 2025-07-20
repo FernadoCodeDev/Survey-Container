@@ -161,9 +161,9 @@ Esta aplicación sirve como demostración de cómo utilizar el componente `Surve
 
 ## ⚙️ Tecnologías usadas
 
-- 🟦 React
-- 🟨 TypeScript
-- ⚡ Vite
+:---: 
+<img src="https://skillicons.dev/icons?i=react,typescript,vite" alt="frontend Skills" /> 
+
 - 📦 React Router DOM
 - 🎨 Estilos personalizados con CSS (sin Tailwind por compatibilidad con el SDK)
 
@@ -238,6 +238,79 @@ Vista de encuesta con campos para responder
 <details>
 <summary>📂 sdk</summary>
 
+## 📦 ¿Qué es `sdk`?
+
+La carpeta `sdk` contiene el paquete reutilizable que expone el componente `SurveyWidget`, el cual permite integrar encuestas de forma sencilla en cualquier aplicación.  
+Este SDK está hecho en **React** y **TypeScript**, y es el corazón de la funcionalidad para contestar encuestas conectadas al backend.
+
+## ⚙️ Tecnologías usadas
+
+:---: 
+<img src="https://skillicons.dev/icons?i=react,typescript" alt="frontend Skills" /> 
+
+---
+
+## 🚀 Instalación
+
+Igual que en las otras carpetas, solo debes instalar las dependencias:
+
+```
+cd sdk
+npm install
+```
+
+### 🧱 Estructura del SDK
+
+```
+/sdk
+│
+├── src/
+│   ├── components/
+│   │   └── SurveyWidget.tsx ← Componente principal para mostrar y contestar encuestas
+│   ├── types/
+│   │   └── index.ts ← Tipos TypeScript para `Survey`, `Question` y `Response`
+│   └── index.ts ← Punto de entrada del paquete que exporta el componente
+│
+├── package.json
+└── tsconfig.json
+
+```
+
+### 🧩 ¿Qué hace SurveyWidget?
+
+El componente SurveyWidget es un formulario dinámico que:
+
+- Recibe el ID de una encuesta como prop (surveyId).
+- Hace una petición al backend para buscar la encuesta correspondiente.
+- Muestra el título y todas las preguntas asociadas a esa encuesta.
+- Permite al usuario responder cada pregunta.
+- Valida que no se envíen campos vacíos.
+- Envía las respuestas al endpoint /api/responses usando fetch.
+- Muestra alertas al usuario dependiendo del éxito o fallo de la operación.
+
+Además, este componente evita errores comunes como:
+
+- Enviar respuestas incompletas.
+- Dejar campos vacíos.
+- Perder el estado al cambiar de input.
+
+### 🧠 Tipos definidos
+
+Dentro de src/types/index.ts se definen las siguientes interfaces:
+
+- `Survey`: Representa una encuesta con `id`, `text` y un array de `questions`.
+- `Question`: Cada pregunta tiene un `id` y su `text`.
+- `Response`: Representa la respuesta enviada a una pregunta (`questionId`, `content`).
+
+### 📁 Exportación del componente
+
+El componente se exporta desde src/index.ts para poder importarlo directamente desde cualquier proyecto:
+
+```
+export { SurveyWidget } from './components/SurveyWidget';
+```
+
+Este SDK está diseñado para ser ligero, funcional y reutilizable, facilitando su integración en cualquier frontend compatible con React.
 
 </details>
 
