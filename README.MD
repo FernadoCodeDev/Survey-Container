@@ -317,7 +317,7 @@ Este SDK está diseñado para ser ligero, funcional y reutilizable, facilitando 
 
 ## API
 
-Este directorio contiene el código del Backend de la aplicación, desarrollado con Node.js, Express, TypeScript, y la base de datos SQLite, utilizando Prisma como ORM.
+Este directorio contiene el código del **Backend de la aplicación**, desarrollado con **Node.js, Express, TypeScript**, y la base de datos **SQLite**, utilizando **Prisma** como ORM.
 
 ### 🧩 ¿Cómo funciona?
 Al iniciar esta parte del proyecto, se levanta un servidor en `localhost:3000` donde podrás interactuar con la API para crear y consultar encuestas.
