@@ -152,14 +152,92 @@ Estas rutas están definidas dentro de la carpeta `src/routes` y cada una se con
 <details>
 <summary>📂 demo-app</summary>
 
-![aa](https://github.com/FernadoCodeDev/Project-React-Ty-Node/blob/main/Img-Readme/Readme-Image-1.png)
+## 🎯 ¿Qué es `demo-app`?
 
-![aaa](https://github.com/FernadoCodeDev/Project-React-Ty-Node/blob/main/Img-Readme/Readme-Image-2.png)
+La carpeta `demo-app` contiene una aplicación web desarrollada con **React**, **TypeScript** y **Vite**.  
+Esta aplicación sirve como demostración de cómo utilizar el componente `SurveyWidget` del SDK, mostrando su funcionamiento en distintos escenarios de uso real.
+
+---
+
+## ⚙️ Tecnologías usadas
+
+- 🟦 React
+- 🟨 TypeScript
+- ⚡ Vite
+- 📦 React Router DOM
+- 🎨 Estilos personalizados con CSS (sin Tailwind por compatibilidad con el SDK)
+
+
+## 🚀 ¿Cómo iniciar el proyecto?
+
+Primero, asegúrate de haber instalado las dependencias:
+
+```
+cd demo-app
+npm install
+```
+
+Luego, para iniciar el servidor en desarrollo:
+
+```
+npm run dev
+```
+
+## 🧭 Navegación y rutas
+La lógica de rutas está definida en src/main.tsx, y utiliza react-router-dom. Las rutas disponibles son:
+
+| **Ruta** | **Componente**                  | **Descripción**                         |
+|:----------:|:--------------------------|:----------------------------------------|
+| /                   | `MetricsViewer`  | Página inicial: muestra todas las encuestas disponibles en la base de datos  |
+| /app                | `App`            | Página para ingresar manualmente el ID de una encuesta                       |
+| /survey/:surveyId   | `App`            | Página para responder la encuesta seleccionada                               |
+
+
+El enrutamiento se define así en `main.tsx`:
+
+
+```
+<BrowserRouter>
+  <Routes>
+    <Route path="/" element={<MetricsViewer />} />
+    <Route path="/app" element={<App />} />
+    <Route path="/survey/:surveyId" element={<SurveyPage />} />
+  </Routes>
+</BrowserRouter>
+```
+
+### 🧪 Funcionalidad principal
+- Al iniciar la aplicación, se listan todas las encuestas disponibles (imagen de referencia incluida).
+- Cada encuesta muestra sus preguntas y un botón “Contestar encuesta” que redirige a /survey/:surveyId.
+- Desde esa vista puedes completar y enviar tus respuestas.
+- La interfaz es simple, priorizando la funcionalidad por encima del diseño visual.
+- También puedes probar la vista de encuesta manualmente desde /app ingresando un ID válido.
+
+### 🔐 Seguridad
+La app está diseñada para prevenir inyecciones SQL en los campos de entrada.
+
+
+### 🎨 Estilos
+El archivo de estilos principal es `src/index.css`.
+
+> Debido a que el SDK no compila directamente con Tailwind CSS, en esta app se usan estilos personalizados con CSS nativo.
+
+Dentro de `index.css` encontrarás un comentario explicando por qué se optó por esta estrategia en lugar de usar Tailwind.
+
+### 📸 Pantallas
+Vista principal con encuestas:
+
+![Vista principal con encuestas](https://github.com/FernadoCodeDev/Project-React-Ty-Node/blob/main/Img-Readme/Readme-Image-1.png)
+
+Vista de encuesta con campos para responder
+
+![Vista de encuesta con campos para responder](https://github.com/FernadoCodeDev/Project-React-Ty-Node/blob/main/Img-Readme/Readme-Image-2.png)
 
 </details>
 
 <details>
 <summary>📂 sdk</summary>
+
 
 </details>
 
