@@ -278,14 +278,14 @@ npm install
 
 ### 🧩 ¿Qué hace SurveyWidget?
 
-El componente SurveyWidget es un formulario dinámico que:
+El componente `SurveyWidget` es un formulario dinámico que:
 
-- Recibe el ID de una encuesta como prop (surveyId).
+- Recibe el ID de una encuesta como prop (`surveyId`).
 - Hace una petición al backend para buscar la encuesta correspondiente.
 - Muestra el título y todas las preguntas asociadas a esa encuesta.
 - Permite al usuario responder cada pregunta.
 - Valida que no se envíen campos vacíos.
-- Envía las respuestas al endpoint /api/responses usando fetch.
+- Envía las respuestas al endpoint `/api/responses` usando fetch.
 - Muestra alertas al usuario dependiendo del éxito o fallo de la operación.
 
 Además, este componente evita errores comunes como:
@@ -296,7 +296,7 @@ Además, este componente evita errores comunes como:
 
 ### 🧠 Tipos definidos
 
-Dentro de src/types/index.ts se definen las siguientes interfaces:
+Dentro de `src/types/index.ts` se definen las siguientes interfaces:
 
 - `Survey`: Representa una encuesta con `id`, `text` y un array de `questions`.
 - `Question`: Cada pregunta tiene un `id` y su `text`.
