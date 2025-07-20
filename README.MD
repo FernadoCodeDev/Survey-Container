@@ -161,7 +161,6 @@ Esta aplicación sirve como demostración de cómo utilizar el componente `Surve
 
 ## ⚙️ Tecnologías usadas
 
-:---: 
 <img src="https://skillicons.dev/icons?i=react,typescript,vite" alt="frontend Skills" /> 
 
 - 📦 React Router DOM
@@ -194,7 +193,6 @@ La lógica de rutas está definida en src/main.tsx, y utiliza react-router-dom. 
 
 
 El enrutamiento se define así en `main.tsx`:
-
 
 ```
 <BrowserRouter>
@@ -244,8 +242,7 @@ La carpeta `sdk` contiene el paquete reutilizable que expone el componente `Surv
 Este SDK está hecho en **React** y **TypeScript**, y es el corazón de la funcionalidad para contestar encuestas conectadas al backend.
 
 ## ⚙️ Tecnologías usadas
-
-:---: 
+ 
 <img src="https://skillicons.dev/icons?i=react,typescript" alt="frontend Skills" /> 
 
 ---
