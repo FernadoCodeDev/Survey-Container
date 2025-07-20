@@ -313,7 +313,67 @@ Este SDK está diseñado para ser ligero, funcional y reutilizable, facilitando 
 </details>
 
 <details>
-<summary>API</summary>
+<summary>📡 API</summary>
+
+## API
+
+Este directorio contiene el código del Backend de la aplicación, desarrollado con Node.js, Express, TypeScript, y la base de datos SQLite, utilizando Prisma como ORM.
+
+### 🧩 ¿Cómo funciona?
+Al iniciar esta parte del proyecto, se levanta un servidor en `localhost:3000` donde podrás interactuar con la API para crear y consultar encuestas.
+
+
+### 🚀 Iniciar el servidor
+Primero, asegúrate de haber instalado las dependencias:
+
+```
+cd backend
+npm install
+```
+
+Luego, para ejecutar el servidor en modo desarrollo:
+
+```
+npm run dev
+```
+
+Al iniciar correctamente, deberías ver el siguiente mensaje en consola:
+`API funcionando 🚀`
+
+### 🗃️ Base de datos
+Al ejecutar el backend por primera vez, la base de datos ya debe estar creada (ver instrucciones en el apartado Backend). En este punto, estará vacía, por lo que al visitar la URL:
+
+`http://localhost:3000/api/surveys`
+
+`[]`
+
+### 🧪 Probar la API
+Para agregar encuestas y probar el sistema, se recomienda utilizar **Postman**:
+
+- Abre Postman y crea una nueva **petición POST**
+- Usa como URL: `localhost:3000/api/surveys`
+- Ve a la pestaña **Body**, selecciona **raw**, y elige **JSON** como tipo de contenido.
+- Usa la siguiente plantilla de ejemplo para enviar tu encuesta:
+
+```
+{
+  "qualification": "Nombre de la encuesta",
+  "questions": [
+    { "text": "¿Cuál es tu lenguaje favorito?" },
+    { "text": "¿Qué herramientas usas a diario?" }
+  ]
+}
+```
+
+> Puedes agregar la cantidad de preguntas que desees. El formato es flexible.
+
+- Haz clic en **Send** y si todo está correcto, la encuesta se guardará.
+- Refresca la página en tu navegador (`localhost:3000/api/surveys`) y ahora verás la encuesta agregada en el array.
+
+### 📌 Notas adicionales
+Si ya tienes abierto el local de `demo-app`, también puedes refrescar la página y verás reflejada la nueva encuesta disponible para ser contestada desde el Front-End.
+
+La API está preparada para recibir datos seguros y evitar inyecciones SQL mediante el uso de **Prisma ORM** y buenas prácticas en los controladores.
 
 </details>
 
