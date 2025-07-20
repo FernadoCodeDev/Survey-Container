@@ -205,11 +205,12 @@ El enrutamiento se define así en `main.tsx`:
 ```
 
 ### 🧪 Funcionalidad principal
-- Al iniciar la aplicación, se listan todas las encuestas disponibles (imagen de referencia incluida).
-- Cada encuesta muestra sus preguntas y un botón “Contestar encuesta” que redirige a /survey/:surveyId.
+
+- Al iniciar la aplicación, se listan todas las encuestas disponibles.
+- Cada encuesta muestra sus preguntas y un botón “Contestar encuesta” que redirige a `/survey/:surveyId`.
 - Desde esa vista puedes completar y enviar tus respuestas.
 - La interfaz es simple, priorizando la funcionalidad por encima del diseño visual.
-- También puedes probar la vista de encuesta manualmente desde /app ingresando un ID válido.
+- También puedes probar la vista de encuesta manualmente desde `/app` ingresando un ID válido.
 
 ### 🔐 Seguridad
 La app está diseñada para prevenir inyecciones SQL en los campos de entrada.
