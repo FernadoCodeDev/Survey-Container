@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
-import type { Survey, Response } from "../types";
+import type { Survey } from "../types";
 import '../../../demo-app/src/index.css';
 interface SurveyWidgetProps {
   surveyId: string;
-  apiUrl?: string;
+  apiUrl: string; 
 }
 
-export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
-  surveyId,
-  apiUrl = "http://localhost:3000/api",
-}) => {
+export const SurveyWidget: React.FC<SurveyWidgetProps> = ({ surveyId, apiUrl }) => {
   const [survey, setSurvey] = useState<Survey | null>(null);
   const [responses, setResponses] = useState<Record<string, string>>({});
 
@@ -32,9 +29,9 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
   const handleSubmit = async () => {
     const payload = Object.entries(responses)
       .map(([questionId, content]) => ({ questionId, content: content.trim() }))
-      .filter((r) => r.content.length > 0); //Avoid sending empty fields
+      .filter((r) => r.content.length > 0);
 
-    if (payload.length < survey?.questions.length) {
+    if (payload.length < (survey?.questions.length || 0)) {
       alert("Por favor responde todas las preguntas");
       return;
     }
@@ -46,13 +43,13 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
     });
 
     if (res.ok) {
-      alert("Responses sent successfully!");
+      alert("Respuestas enviadas");
     } else {
-      alert("An error occurred while sending responses");
+      alert("Error al enviar las respuestas");
     }
   };
 
-  if (!survey) return <p>Loading survey...</p>;
+  if (!survey) return <p>Cargando encuesta...</p>;
 
   return (
     <form
@@ -64,22 +61,22 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
     >
       <h2 className="survey-title">{survey.text}</h2>
 
-      {survey.questions.map((p) => (
-        <div key={p.id} className="survey-question">
-          <label className="survey-label">{p.text}</label>
+      {survey.questions.map((q) => (
+        <div key={q.id} className="survey-question">
+          <label className="survey-label">{q.text}</label>
           <input
             type="text"
-            name={`question-${p.id}`}
+            name={`question-${q.id}`}
             required
             className="survey-input"
-            value={responses[p.id] || ""}
-            onChange={(e) => handleChange(p.id, e.target.value)}
+            value={responses[q.id] || ""}
+            onChange={(e) => handleChange(q.id, e.target.value)}
           />
         </div>
       ))}
 
       <button type="submit" className="survey-button">
-        Send responses
+        Enviar respuestas
       </button>
     </form>
   );

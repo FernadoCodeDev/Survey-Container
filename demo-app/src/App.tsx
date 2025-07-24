@@ -6,6 +6,7 @@ const App: React.FC = () => {
     <div className="flex flex-col items-center justify-center m-auto max-w-[60rem] ">
       <SurveyWidget
         surveyId=""
+         apiUrl="http://localhost:3000/api"
       />
     </div>
   );
