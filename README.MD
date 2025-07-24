@@ -338,7 +338,7 @@ npm run dev
 ```
 
 Al iniciar correctamente, deberías ver el siguiente mensaje en consola:
-`API funcionando 🚀`
+`API funcionando`
 
 ### 🗃️ Base de datos
 Al ejecutar el backend por primera vez, la base de datos ya debe estar creada (ver instrucciones en el apartado Backend). En este punto, estará vacía, por lo que al visitar la URL:
