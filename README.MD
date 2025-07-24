@@ -161,9 +161,8 @@ Esta aplicación sirve como demostración de cómo utilizar el componente `Surve
 
 ## ⚙️ Tecnologías usadas
 
-- 🟦 React
-- 🟨 TypeScript
-- ⚡ Vite
+<img src="https://skillicons.dev/icons?i=react,typescript,vite" alt="frontend Skills" /> 
+
 - 📦 React Router DOM
 - 🎨 Estilos personalizados con CSS (sin Tailwind por compatibilidad con el SDK)
 
@@ -195,7 +194,6 @@ La lógica de rutas está definida en src/main.tsx, y utiliza react-router-dom. 
 
 El enrutamiento se define así en `main.tsx`:
 
-
 ```
 <BrowserRouter>
   <Routes>
@@ -207,11 +205,12 @@ El enrutamiento se define así en `main.tsx`:
 ```
 
 ### 🧪 Funcionalidad principal
-- Al iniciar la aplicación, se listan todas las encuestas disponibles (imagen de referencia incluida).
-- Cada encuesta muestra sus preguntas y un botón “Contestar encuesta” que redirige a /survey/:surveyId.
+
+- Al iniciar la aplicación, se listan todas las encuestas disponibles.
+- Cada encuesta muestra sus preguntas y un botón “Contestar encuesta” que redirige a `/survey/:surveyId`.
 - Desde esa vista puedes completar y enviar tus respuestas.
 - La interfaz es simple, priorizando la funcionalidad por encima del diseño visual.
-- También puedes probar la vista de encuesta manualmente desde /app ingresando un ID válido.
+- También puedes probar la vista de encuesta manualmente desde `/app` ingresando un ID válido.
 
 ### 🔐 Seguridad
 La app está diseñada para prevenir inyecciones SQL en los campos de entrada.
@@ -238,11 +237,143 @@ Vista de encuesta con campos para responder
 <details>
 <summary>📂 sdk</summary>
 
+## 📦 ¿Qué es `sdk`?
+
+La carpeta `sdk` contiene el paquete reutilizable que expone el componente `SurveyWidget`, el cual permite integrar encuestas de forma sencilla en cualquier aplicación.  
+Este SDK está hecho en **React** y **TypeScript**, y es el corazón de la funcionalidad para contestar encuestas conectadas al backend.
+
+## ⚙️ Tecnologías usadas
+ 
+<img src="https://skillicons.dev/icons?i=react,typescript" alt="frontend Skills" /> 
+
+---
+
+## 🚀 Instalación
+
+Igual que en las otras carpetas, solo debes instalar las dependencias:
+
+```
+cd sdk
+npm install
+```
+
+### 🧱 Estructura del SDK
+
+```
+/sdk
+│
+├── src/
+│   ├── components/
+│   │   └── SurveyWidget.tsx ← Componente principal para mostrar y contestar encuestas
+│   ├── types/
+│   │   └── index.ts ← Tipos TypeScript para `Survey`, `Question` y `Response`
+│   └── index.ts ← Punto de entrada del paquete que exporta el componente
+│
+├── package.json
+└── tsconfig.json
+
+```
+
+### 🧩 ¿Qué hace SurveyWidget?
+
+El componente `SurveyWidget` es un formulario dinámico que:
+
+- Recibe el ID de una encuesta como prop (`surveyId`).
+- Hace una petición al backend para buscar la encuesta correspondiente.
+- Muestra el título y todas las preguntas asociadas a esa encuesta.
+- Permite al usuario responder cada pregunta.
+- Valida que no se envíen campos vacíos.
+- Envía las respuestas al endpoint `/api/responses` usando fetch.
+- Muestra alertas al usuario dependiendo del éxito o fallo de la operación.
+
+Además, este componente evita errores comunes como:
+
+- Enviar respuestas incompletas.
+- Dejar campos vacíos.
+- Perder el estado al cambiar de input.
+
+### 🧠 Tipos definidos
+
+Dentro de `src/types/index.ts` se definen las siguientes interfaces:
+
+- `Survey`: Representa una encuesta con `id`, `text` y un array de `questions`.
+- `Question`: Cada pregunta tiene un `id` y su `text`.
+- `Response`: Representa la respuesta enviada a una pregunta (`questionId`, `content`).
+
+### 📁 Exportación del componente
+
+El componente se exporta desde `src/index.ts` para poder importarlo directamente desde cualquier proyecto:
+
+```
+export { SurveyWidget } from './components/SurveyWidget';
+```
+
+Este SDK está diseñado para ser ligero, funcional y reutilizable, facilitando su integración en cualquier frontend compatible con React.
 
 </details>
 
 <details>
-<summary>API</summary>
+<summary>📡 API</summary>
+
+## API
+
+Este directorio contiene el código del **Backend de la aplicación**, desarrollado con **Node.js, Express, TypeScript**, y la base de datos **SQLite**, utilizando **Prisma** como ORM.
+
+### 🧩 ¿Cómo funciona?
+Al iniciar esta parte del proyecto, se levanta un servidor en `localhost:3000` donde podrás interactuar con la API para crear y consultar encuestas.
+
+
+### 🚀 Iniciar el servidor
+Primero, asegúrate de haber instalado las dependencias:
+
+```
+cd backend
+npm install
+```
+
+Luego, para ejecutar el servidor en modo desarrollo:
+
+```
+npm run dev
+```
+
+Al iniciar correctamente, deberías ver el siguiente mensaje en consola:
+`API funcionando`
+
+### 🗃️ Base de datos
+Al ejecutar el backend por primera vez, la base de datos ya debe estar creada (ver instrucciones en el apartado Backend). En este punto, estará vacía, por lo que al visitar la URL:
+
+`http://localhost:3000/api/surveys`
+
+`[]`
+
+### 🧪 Probar la API
+Para agregar encuestas y probar el sistema, se recomienda utilizar **Postman**:
+
+- Abre Postman y crea una nueva **petición POST**
+- Usa como URL: `localhost:3000/api/surveys`
+- Ve a la pestaña **Body**, selecciona **raw**, y elige **JSON** como tipo de contenido.
+- Usa la siguiente plantilla de ejemplo para enviar tu encuesta:
+
+```
+{
+  "qualification": "Nombre de la encuesta",
+  "questions": [
+    { "text": "¿Cuál es tu lenguaje favorito?" },
+    { "text": "¿Qué herramientas usas a diario?" }
+  ]
+}
+```
+
+> Puedes agregar la cantidad de preguntas que desees. El formato es flexible.
+
+- Haz clic en **Send** y si todo está correcto, la encuesta se guardará.
+- Refresca la página en tu navegador (`localhost:3000/api/surveys`) y ahora verás la encuesta agregada en el array.
+
+### 📌 Notas adicionales
+Si ya tienes abierto el local de `demo-app`, también puedes refrescar la página y verás reflejada la nueva encuesta disponible para ser contestada desde el Front-End.
+
+La API está preparada para recibir datos seguros y evitar inyecciones SQL mediante el uso de **Prisma ORM** y buenas prácticas en los controladores.
 
 </details>
 
