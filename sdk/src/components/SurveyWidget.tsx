@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import type { Survey } from "../types";
-import '../../../demo-app/src/index.css';
+import '../styles/widget.css';
 interface SurveyWidgetProps {
   surveyId: string;
   apiUrl: string; 
