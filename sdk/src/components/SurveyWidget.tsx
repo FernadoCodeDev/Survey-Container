@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import type { Survey } from "../types";
-import '../styles/widget.css';
+import "../styles/widget.css";
 
 interface SurveyWidgetProps {
   surveyId: string;
@@ -19,18 +19,18 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
   onSubmit,
   loadingText = "Cargando encuesta...",
   submitButtonText = "Enviar respuestas",
-  className = ""
+  className = "",
 }) => {
   const [survey, setSurvey] = useState<Survey | null>(null);
   const [responses, setResponses] = useState<Record<string, string>>({});
 
   useEffect(() => {
-  const finalUrl = typeof fetchUrl === "string"
-  ? fetchUrl.includes("?") || fetchUrl.includes("=")
-    ? `${fetchUrl}${surveyId}` 
-    : `${fetchUrl.replace(/\/?$/, "/")}${surveyId}` 
-  : `${apiUrl}/surveys`;
-
+    const finalUrl =
+      typeof fetchUrl === "string"
+        ? fetchUrl.includes("?") || fetchUrl.includes("=")
+          ? `${fetchUrl}${surveyId}`
+          : `${fetchUrl.replace(/\/?$/, "/")}${surveyId}`
+        : `${apiUrl}/surveys`;
 
     fetch(finalUrl)
       .then((res) => res.json())
@@ -88,7 +88,9 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
       }}
       className={`survey-form ${className}`}
     >
-      <h2 className="survey-title">{survey.text}</h2>
+      <h2 className="survey-title">
+        {survey.qualification || survey.text || "Encuesta sin título"}
+      </h2>
 
       {survey.questions.map((q) => (
         <div key={q.id} className="survey-question">

@@ -1,6 +1,7 @@
 export interface Survey {
   id: string;
-  text: string;
+  text?: string;
+  qualification?: string;
   questions: Question[];
 }
 
