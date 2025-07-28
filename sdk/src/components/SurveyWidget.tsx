@@ -92,22 +92,26 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
         {survey.qualification || survey.text || "Encuesta sin título"}
       </h2>
 
-      {survey.questions.map((q) => (
-        <div key={q.id} className="survey-question">
-          <label className="survey-label" htmlFor={`question-${q.id}`}>
-            {q.text}
-          </label>
-          <input
-            id={`question-${q.id}`}
-            type="text"
-            name={`question-${q.id}`}
-            required
-            className="survey-input"
-            value={responses[q.id] || ""}
-            onChange={(e) => handleChange(q.id, e.target.value)}
-          />
-        </div>
-      ))}
+      {Array.isArray(survey.questions) ? (
+        survey.questions.map((q) => (
+          <div key={q.id} className="survey-question">
+            <label className="survey-label" htmlFor={`question-${q.id}`}>
+              {q.text}
+            </label>
+            <input
+              id={`question-${q.id}`}
+              type="text"
+              name={`question-${q.id}`}
+              required
+              className="survey-input"
+              value={responses[q.id] || ""}
+              onChange={(e) => handleChange(q.id, e.target.value)}
+            />
+          </div>
+        ))
+      ) : (
+        <p>No hay preguntas para esta encuesta</p>
+      )}
 
       <button type="submit" className="survey-button">
         {submitButtonText}
