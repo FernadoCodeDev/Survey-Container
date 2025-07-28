@@ -1,26 +1,48 @@
 import React, { useEffect, useState } from "react";
 import type { Survey } from "../types";
 import '../styles/widget.css';
+
 interface SurveyWidgetProps {
   surveyId: string;
-  apiUrl: string; 
+  apiUrl: string;
+  fetchUrl?: string;
+  onSubmit?: (responses: Record<string, string>) => Promise<void>;
+  loadingText?: string;
+  submitButtonText?: string;
+  className?: string;
 }
 
-export const SurveyWidget: React.FC<SurveyWidgetProps> = ({ surveyId, apiUrl }) => {
+export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
+  surveyId,
+  apiUrl,
+  fetchUrl,
+  onSubmit,
+  loadingText = "Cargando encuesta...",
+  submitButtonText = "Enviar respuestas",
+  className = ""
+}) => {
   const [survey, setSurvey] = useState<Survey | null>(null);
   const [responses, setResponses] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    fetch(`${apiUrl}/surveys`)
+    const finalUrl = typeof fetchUrl === "string"
+      ? `${fetchUrl.replace(/\/?$/, "/")}${surveyId}`
+      : `${apiUrl}/surveys`;
+
+    fetch(finalUrl)
       .then((res) => res.json())
       .then((data) => {
-        const surveyFound = data.find((e: Survey) => e.id === surveyId);
-        setSurvey(surveyFound || null);
+        if (Array.isArray(data)) {
+          const surveyFound = data.find((e: Survey) => e.id === surveyId);
+          setSurvey(surveyFound || null);
+        } else {
+          setSurvey(data);
+        }
       })
       .catch((error) => {
         console.error("Error al hacer fetch:", error);
       });
-  }, [surveyId, apiUrl]);
+  }, [surveyId, apiUrl, fetchUrl]);
 
   const handleChange = (questionId: string, value: string) => {
     setResponses((prev) => ({ ...prev, [questionId]: value }));
@@ -32,24 +54,28 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({ surveyId, apiUrl }) 
       .filter((r) => r.content.length > 0);
 
     if (payload.length < (survey?.questions.length || 0)) {
-      alert("Por favor responde todas las preguntas");
+      alert("Responde todas las preguntas");
       return;
     }
 
-    const res = await fetch(`${apiUrl}/responses`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ responses: payload }),
-    });
-
-    if (res.ok) {
-      alert("Respuestas enviadas");
+    if (onSubmit) {
+      await onSubmit(responses);
     } else {
-      alert("Error al enviar las respuestas");
+      const res = await fetch(`${apiUrl}/responses`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ responses: payload }),
+      });
+
+      if (res.ok) {
+        alert("Respuestas enviadas");
+      } else {
+        alert("Error al enviar las respuestas");
+      }
     }
   };
 
-  if (!survey) return <p>Cargando encuesta...</p>;
+  if (!survey) return <p>{loadingText}</p>;
 
   return (
     <form
@@ -57,14 +83,17 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({ surveyId, apiUrl }) 
         e.preventDefault();
         handleSubmit();
       }}
-      className="survey-form"
+      className={`survey-form ${className}`}
     >
       <h2 className="survey-title">{survey.text}</h2>
 
       {survey.questions.map((q) => (
         <div key={q.id} className="survey-question">
-          <label className="survey-label">{q.text}</label>
+          <label className="survey-label" htmlFor={`question-${q.id}`}>
+            {q.text}
+          </label>
           <input
+            id={`question-${q.id}`}
             type="text"
             name={`question-${q.id}`}
             required
@@ -76,7 +105,7 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({ surveyId, apiUrl }) 
       ))}
 
       <button type="submit" className="survey-button">
-        Enviar respuestas
+        {submitButtonText}
       </button>
     </form>
   );

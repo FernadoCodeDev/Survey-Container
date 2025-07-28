@@ -8,10 +8,11 @@ const SurveyPage = () => {
 
   return (
     <div className="max-w-md p-4 mx-auto">
-      <SurveyWidget 
+     <SurveyWidget 
       surveyId={surveyId}
-      apiUrl="http://localhost:3000/api"
-       />
+      apiUrl="http://localhost:3000/api"  
+      />
+
     </div>
   );
 };
