@@ -25,9 +25,12 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
   const [responses, setResponses] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    const finalUrl = typeof fetchUrl === "string"
-      ? `${fetchUrl.replace(/\/?$/, "/")}${surveyId}`
-      : `${apiUrl}/surveys`;
+  const finalUrl = typeof fetchUrl === "string"
+  ? fetchUrl.includes("?") || fetchUrl.includes("=")
+    ? `${fetchUrl}${surveyId}` 
+    : `${fetchUrl.replace(/\/?$/, "/")}${surveyId}` 
+  : `${apiUrl}/surveys`;
+
 
     fetch(finalUrl)
       .then((res) => res.json())
