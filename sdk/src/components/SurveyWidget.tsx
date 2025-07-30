@@ -10,6 +10,7 @@ interface SurveyWidgetProps {
   loadingText?: string;
   submitButtonText?: string;
   className?: string;
+  responseUrl?: string;
 }
 
 export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
@@ -20,6 +21,7 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
   loadingText = "Cargando encuesta...",
   submitButtonText = "Enviar respuestas",
   className = "",
+  responseUrl,
 }) => {
   const [survey, setSurvey] = useState<Survey | null>(null);
   const [responses, setResponses] = useState<Record<string, string>>({});
@@ -64,7 +66,9 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
     if (onSubmit) {
       await onSubmit(responses);
     } else {
-      const res = await fetch(`${apiUrl}/responses`, {
+      const finalResponseUrl = responseUrl || `${apiUrl}/responses`;
+
+      const res = await fetch(finalResponseUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ responses: payload }),
