@@ -363,8 +363,8 @@ Para agregar encuestas y probar el sistema, se recomienda utilizar **Postman**:
 {
   "qualification": "Nombre de la encuesta",
   "questions": [
-    { "text": "¿Cuál es tu lenguaje favorito?" },
-    { "text": "¿Qué herramientas usas a diario?" }
+    { "text": "Pregunta" },
+    { "text": "Pregunta" }
   ]
 }
 ```
