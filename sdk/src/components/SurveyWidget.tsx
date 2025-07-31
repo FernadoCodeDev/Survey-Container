@@ -11,6 +11,7 @@ interface SurveyWidgetProps {
   submitButtonText?: string;
   className?: string;
   responseUrl?: string;
+   onAlert?: (message: string, type?: "success" | "error" | "warning") => void;
 }
 
 export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
@@ -22,6 +23,7 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
   submitButtonText = "Enviar respuestas",
   className = "",
   responseUrl,
+  onAlert,
 }) => {
   const [survey, setSurvey] = useState<Survey | null>(null);
   const [responses, setResponses] = useState<Record<string, string>>({});
@@ -59,7 +61,7 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
       .filter((r) => r.content.length > 0);
 
     if (payload.length < (survey?.questions.length || 0)) {
-      alert("Responde todas las preguntas");
+      onAlert?.("Responde todas las preguntas", "warning");
       return;
     }
 
@@ -75,9 +77,9 @@ export const SurveyWidget: React.FC<SurveyWidgetProps> = ({
       });
 
       if (res.ok) {
-        alert("Respuestas enviadas");
+        onAlert?.("Respuestas enviadas", "success");
       } else {
-        alert("Error al enviar las respuestas");
+        onAlert?.("Error al enviar las respuestas", "error");
       }
     }
   };
