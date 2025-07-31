@@ -5,7 +5,7 @@
 > Este repositorio contiene el código fuente y desarrollo del paquete NPM survey container.
 > Si estás buscando cómo utilizar este paquete en un proyecto, consulta el repositorio de demo donde se muestra cómo instalarlo y utilizarlo como dependencia 
 > Este repositorio está enfocado en el desarrollo y mantenimiento del paquete. Si lo clonas, obtendrás el entorno de desarrollo del mismo. 
-> Se separaron ambos repositorios (desarrollo y DEMO) para evitar confusiones entre contribuir al paquete y simplemente consumirlo como dependencia.
+> Se separaron ambos repositorios (desarrollo y demo) para evitar confusiones entre contribuir al paquete y simplemente consumirlo como dependencia.
 
 🔗 [Repositorio de demo con el uso del paquete](https://github.com/FernadoCodeDev/demo-survey-container)
 
