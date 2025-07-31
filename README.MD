@@ -1,13 +1,13 @@
-[!NOTE]
-Este repositorio contiene el código fuente y desarrollo del paquete NPM survey-container.
-Si estás buscando cómo utilizar este paquete en un proyecto, consulta el repositorio de demo donde se muestra cómo instalarlo y utilizarlo como dependencia: Demo de uso del paquete.
-
-Este repositorio está enfocado en el desarrollo y mantenimiento del paquete. Si lo clonas, obtendrás el entorno de desarrollo del mismo.
-
-Se separaron ambos repositorios (desarrollo y DEMO) para evitar confusiones entre contribuir al paquete y simplemente consumirlo como dependencia.
-
 # **Survey Container** 
 ![SurveyContainer](https://github.com/FernadoCodeDev/Survey-Container/blob/main/Img-Readme/SurveyContainer.png)
+
+> [!NOTE]
+> Este repositorio contiene el código fuente y desarrollo del paquete NPM survey-container.
+> Si estás buscando cómo utilizar este paquete en un proyecto, consulta el repositorio de demo donde se muestra cómo instalarlo y utilizarlo como dependencia: Demo de uso del paquete.
+
+> Este repositorio está enfocado en el desarrollo y mantenimiento del paquete. Si lo clonas, obtendrás el entorno de desarrollo del mismo.
+
+> Se separaron ambos repositorios (desarrollo y DEMO) para evitar confusiones entre contribuir al paquete y simplemente consumirlo como dependencia.
 
 # 📦 Survey Container
 
