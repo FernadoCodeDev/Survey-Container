@@ -85,7 +85,8 @@ El backend está desarrollado con **Node.js**, usando el framework **Express** y
 └── tsconfig.json
 ```
 
-> 📝 **Nota:** Las carpetas `dist/` y `node_modules/` se excluyen porque se generan automáticamente al compilar y al instalar dependencias.
+> [!note]
+Las carpetas dist/ y node_modules/ se excluyen porque se generan automáticamente al compilar y al instalar dependencias.
 
 ### 🧠 ¿Qué es `prisma/`?
 
