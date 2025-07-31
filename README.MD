@@ -47,7 +47,6 @@ cd demo-app && npm install
 ```
 cd sdk && npm install
 ```
-
 ---
 
 ## 📁 Estructura del proyecto
@@ -93,15 +92,21 @@ npx prisma studio
 
 ### 🛠️ Configuración de la base de datos
 
-Para configurar la base de datos con SQLite, asegúrate de tener el archivo schema.prisma bien definido. Luego:
+Para configurar la base de datos con SQLite, asegúrate de tener el archivo schema.prisma definido. Luego:
 
-1. Instala dependencias:
+1. Entra a la carpeta backend: 
+
+```
+cd backend 
+```
+
+2. Instala dependencias:
 
 ```
 npm install
 ```
 
-2. Genera el cliente Prisma y crea la base de datos:
+3. Genera el cliente Prisma y crea la base de datos:
 
 ```
 npx prisma generate
@@ -110,7 +115,7 @@ npx prisma db push
 
 Esto creará automáticamente el archivo dev.db (base de datos SQLite) basado en el esquema.
 
-3. Para ver tu base de datos ve a Prisma Studio:
+4. Para ver tu base de datos ve a Prisma Studio:
 
 ```
 npx prisma studio
@@ -118,13 +123,13 @@ npx prisma studio
 
 ### 🚀 Iniciar el servidor
 
-- entra a la carpeta backend 
+- Recuerd que debes entrar a la carpeta backend para inicar el servidor
 
 ```
 cd backend 
 ```
 
-e inicia el servidor 
+- inicia el servidor 
 
 ```
 npm run dev
@@ -358,8 +363,8 @@ Para agregar encuestas y probar el sistema, se recomienda utilizar **Postman**:
 {
   "qualification": "Nombre de la encuesta",
   "questions": [
-    { "text": "¿Cuál es tu lenguaje favorito?" },
-    { "text": "¿Qué herramientas usas a diario?" }
+    { "text": "Pregunta" },
+    { "text": "Pregunta" }
   ]
 }
 ```
