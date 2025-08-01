@@ -397,6 +397,3 @@ La API está preparada para recibir datos seguros y evitar inyecciones SQL media
 [![WORDPRESS](https://img.shields.io/static/v1?message=página-de-documentación-de-paquete-NPM-survey-container-creada-con-WordPress&logo=WordPress&label=&color=1790c8&logoColor=white&labelColor=&style=for-the-badge)]()
 
 </div>
-
-
-
