@@ -7,7 +7,6 @@
 > Este repositorio está enfocado en el desarrollo y mantenimiento del paquete. Si lo clonas, obtendrás el entorno de desarrollo del mismo. 
 > Se separaron ambos repositorios (desarrollo y demo) para evitar confusiones entre contribuir al paquete y simplemente consumirlo como dependencia.
 
-
 [![GITHUB](https://img.shields.io/static/v1?message=Repositorio-de-demo-con-el-uso-del-paquete&logo=Github&label=&color=22262A&logoColor=white&labelColor=&style=for-the-badge)](https://github.com/FernadoCodeDev/demo-survey-container)
 
 # 📦 Survey Container
@@ -70,6 +69,17 @@ cd sdk && npm install
 <summary>📂 backend</summary>
 
 El backend está desarrollado con **Node.js**, usando el framework **Express** y escrito completamente en **TypeScript**. Utiliza **SQLite** como sistema de base de datos local y **Prisma** como ORM para el manejo de datos.
+
+
+## ⚙️ Tecnologías usadas
+
+<div align="left">
+
+![nodedotjs](https://img.shields.io/static/v1?message=node&logo=nodedotjs&label=&color=5FA04E&logoColor=white&labelColor=&style=for-the-badge)
+![express](https://img.shields.io/static/v1?message=express&logo=express&label=&color=000000&logoColor=white&labelColor=&style=for-the-badge)
+![sqlite](https://img.shields.io/static/v1?message=sqlite&logo=sqlite&label=&color=003B57&logoColor=white&labelColor=&style=for-the-badge)
+
+</div>
 
 ### 📦 Estructura general
 
@@ -266,9 +276,15 @@ Vista de encuesta con campos para responder
 La carpeta `sdk` contiene el paquete reutilizable que expone el componente `SurveyWidget`, el cual permite integrar encuestas de forma sencilla en cualquier aplicación.  
 Este SDK está hecho en **React** y **TypeScript**, y es el corazón de la funcionalidad para contestar encuestas conectadas al backend.
 
+
 ## ⚙️ Tecnologías usadas
- 
-<img src="https://skillicons.dev/icons?i=react,typescript" alt="frontend Skills" /> 
+
+<div align="left">
+
+![typescript](https://img.shields.io/static/v1?message=typescript&logo=typescript&label=&color=3178C6&logoColor=white&labelColor=&style=for-the-badge)
+![react](https://img.shields.io/static/v1?message=react&logo=react&label=&color=61DAFB&logoColor=black&labelColor=&style=for-the-badge)
+
+</div>
 
 ---
 
@@ -408,6 +424,7 @@ La API está preparada para recibir datos seguros y evitar inyecciones SQL media
 [![WORDPRESS](https://img.shields.io/static/v1?message=página-de-documentación&logo=WordPress&label=&color=1790c8&logoColor=white&labelColor=&style=for-the-badge)]()
 
 </div>
+
 
 
 
