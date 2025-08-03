@@ -31,19 +31,33 @@ Survey Container es un sistema de encuestas interno pensado para integrarse fác
 
 ### ⚙️ Tecnologías utilizadas
 
-
-### Front-End      Backend      Base de datos
-
+<div align="left">
+### Front-End   
 <div align="left">
 
 ![typescript](https://img.shields.io/static/v1?message=typescript&logo=typescript&label=&color=3178C6&logoColor=white&labelColor=&style=for-the-badge)
 ![react](https://img.shields.io/static/v1?message=react&logo=react&label=&color=61DAFB&logoColor=black&labelColor=&style=for-the-badge)
+
+</div>
+
+### Back-End  
+
+<div align="left">
+
 ![nodedotjs](https://img.shields.io/static/v1?message=node&logo=nodedotjs&label=&color=5FA04E&logoColor=white&labelColor=&style=for-the-badge)
 ![express](https://img.shields.io/static/v1?message=express&logo=express&label=&color=000000&logoColor=white&labelColor=&style=for-the-badge)
 ![sqlite](https://img.shields.io/static/v1?message=sqlite&logo=sqlite&label=&color=003B57&logoColor=white&labelColor=&style=for-the-badge)
 
 </div>
 
+### Base de datos  
+<div align="left">
+
+![sqlite](https://img.shields.io/static/v1?message=sqlite&logo=sqlite&label=&color=003B57&logoColor=white&labelColor=&style=for-the-badge)
+
+</div>
+
+</div>
 
 
 
@@ -409,6 +423,7 @@ La API está preparada para recibir datos seguros y evitar inyecciones SQL media
 [![WORDPRESS](https://img.shields.io/static/v1?message=página-de-documentación&logo=WordPress&label=&color=1790c8&logoColor=white&labelColor=&style=for-the-badge)]()
 
 </div>
+
 
 
 
