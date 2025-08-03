@@ -75,9 +75,11 @@ El backend está desarrollado con **Node.js**, usando el framework **Express** y
 
 <div align="left">
 
+![typescript](https://img.shields.io/static/v1?message=typescript&logo=typescript&label=&color=3178C6&logoColor=white&labelColor=&style=for-the-badge)
 ![nodedotjs](https://img.shields.io/static/v1?message=node&logo=nodedotjs&label=&color=5FA04E&logoColor=white&labelColor=&style=for-the-badge)
 ![express](https://img.shields.io/static/v1?message=express&logo=express&label=&color=000000&logoColor=white&labelColor=&style=for-the-badge)
 ![sqlite](https://img.shields.io/static/v1?message=sqlite&logo=sqlite&label=&color=003B57&logoColor=white&labelColor=&style=for-the-badge)
+![prisma](https://img.shields.io/static/v1?message=prisma&logo=prisma&label=&color=2D3748&logoColor=white&labelColor=&style=for-the-badge)
 
 </div>
 
@@ -424,6 +426,7 @@ La API está preparada para recibir datos seguros y evitar inyecciones SQL media
 [![WORDPRESS](https://img.shields.io/static/v1?message=página-de-documentación&logo=WordPress&label=&color=1790c8&logoColor=white&labelColor=&style=for-the-badge)]()
 
 </div>
+
 
 
 
