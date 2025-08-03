@@ -180,11 +180,16 @@ Esta aplicación sirve como demostración de cómo utilizar el componente `Surve
 
 ## ⚙️ Tecnologías usadas
 
-<img src="https://skillicons.dev/icons?i=react,typescript,vite" alt="frontend Skills" /> 
+<div align="left">
 
-- 📦 React Router DOM
-- 🎨 Estilos personalizados con CSS (sin Tailwind por compatibilidad con el SDK)
+![typescript](https://img.shields.io/static/v1?message=typescript&logo=typescript&label=&color=3178C6&logoColor=white&labelColor=&style=for-the-badge)
+![react](https://img.shields.io/static/v1?message=react&logo=react&label=&color=61DAFB&logoColor=black&labelColor=&style=for-the-badge)
+![vite](https://img.shields.io/static/v1?message=vite&logo=vite&label=&color=646CFF&logoColor=white&labelColor=&style=for-the-badge)
+![reactrouter](https://img.shields.io/static/v1?message=React-Router-DOM&logo=reactrouter&label=&color=CA4245&logoColor=white&labelColor=&style=for-the-badge)
 
+</div>
+
+> 🎨 Estilos personalizados con CSS (sin Tailwind por compatibilidad con el SDK)
 
 ## 🚀 ¿Cómo iniciar el proyecto?
 
@@ -403,6 +408,7 @@ La API está preparada para recibir datos seguros y evitar inyecciones SQL media
 [![WORDPRESS](https://img.shields.io/static/v1?message=página-de-documentación&logo=WordPress&label=&color=1790c8&logoColor=white&labelColor=&style=for-the-badge)]()
 
 </div>
+
 
 
 
