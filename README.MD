@@ -1,6 +1,14 @@
 # **Survey Container** 
 ![SurveyContainer](https://github.com/FernadoCodeDev/Survey-Container/blob/main/Img-Readme/SurveyContainer.png)
 
+> [!important]
+> Este repositorio contiene el código fuente y desarrollo del paquete NPM survey container.
+> Si estás buscando cómo utilizar este paquete en un proyecto, consulta el repositorio de demo donde se muestra cómo instalarlo y utilizarlo como dependencia 
+> Este repositorio está enfocado en el desarrollo y mantenimiento del paquete. Si lo clonas, obtendrás el entorno de desarrollo del mismo. 
+> Se separaron ambos repositorios (desarrollo y demo) para evitar confusiones entre contribuir al paquete y simplemente consumirlo como dependencia.
+
+[![GITHUB](https://img.shields.io/static/v1?message=Repositorio-de-demo-con-el-uso-del-paquete&logo=Github&label=&color=22262A&logoColor=white&labelColor=&style=for-the-badge)](https://github.com/FernadoCodeDev/demo-survey-container)
+
 # 📦 Survey Container
 
 **Survey Container** es una solución completa desarrollada como parte de una prueba técnica para construir un sistema de encuestas internas modular, reutilizable y escalable. Este proyecto incluye:
@@ -22,9 +30,15 @@ Survey Container es un sistema de encuestas interno pensado para integrarse fác
 
 ### ⚙️ Tecnologías utilizadas
 
-**Front-End** | **Back-End** | **Bases de Datos** | 
-:---: | :---: | :---: |
-<img src="https://skillicons.dev/icons?i=react,typescript" alt="frontend Skills" /> |<img src="https://skillicons.dev/icons?i=nodejs,express" alt="Backend Skills" /> | <img src="https://skillicons.dev/icons?i=sqlite" alt="Databases Skills" /> |
+<div align="left">
+
+![typescript](https://img.shields.io/static/v1?message=typescript&logo=typescript&label=&color=3178C6&logoColor=white&labelColor=&style=for-the-badge)
+![react](https://img.shields.io/static/v1?message=react&logo=react&label=&color=61DAFB&logoColor=black&labelColor=&style=for-the-badge)
+![nodedotjs](https://img.shields.io/static/v1?message=node&logo=nodedotjs&label=&color=5FA04E&logoColor=white&labelColor=&style=for-the-badge)
+![express](https://img.shields.io/static/v1?message=express&logo=express&label=&color=000000&logoColor=white&labelColor=&style=for-the-badge)
+![sqlite](https://img.shields.io/static/v1?message=sqlite&logo=sqlite&label=&color=003B57&logoColor=white&labelColor=&style=for-the-badge)
+
+</div>
 
 ### 🧪 Cómo probar Survey-Container
 - clona el repositorio
@@ -56,6 +70,19 @@ cd sdk && npm install
 
 El backend está desarrollado con **Node.js**, usando el framework **Express** y escrito completamente en **TypeScript**. Utiliza **SQLite** como sistema de base de datos local y **Prisma** como ORM para el manejo de datos.
 
+
+## ⚙️ Tecnologías usadas
+
+<div align="left">
+
+![typescript](https://img.shields.io/static/v1?message=typescript&logo=typescript&label=&color=3178C6&logoColor=white&labelColor=&style=for-the-badge)
+![nodedotjs](https://img.shields.io/static/v1?message=node&logo=nodedotjs&label=&color=5FA04E&logoColor=white&labelColor=&style=for-the-badge)
+![express](https://img.shields.io/static/v1?message=express&logo=express&label=&color=000000&logoColor=white&labelColor=&style=for-the-badge)
+![sqlite](https://img.shields.io/static/v1?message=sqlite&logo=sqlite&label=&color=003B57&logoColor=white&labelColor=&style=for-the-badge)
+![prisma](https://img.shields.io/static/v1?message=prisma&logo=prisma&label=&color=2D3748&logoColor=white&labelColor=&style=for-the-badge)
+
+</div>
+
 ### 📦 Estructura general
 
 ```
@@ -77,7 +104,7 @@ El backend está desarrollado con **Node.js**, usando el framework **Express** y
 └── tsconfig.json
 ```
 
-> 📝 **Nota:** Las carpetas `dist/` y `node_modules/` se excluyen porque se generan automáticamente al compilar y al instalar dependencias.
+> Las carpetas `dist/` y `node_modules/` se excluyen porque se generan automáticamente al compilar y al instalar dependencias.
 
 ### 🧠 ¿Qué es `prisma/`?
 
@@ -165,11 +192,16 @@ Esta aplicación sirve como demostración de cómo utilizar el componente `Surve
 
 ## ⚙️ Tecnologías usadas
 
-<img src="https://skillicons.dev/icons?i=react,typescript,vite" alt="frontend Skills" /> 
+<div align="left">
 
-- 📦 React Router DOM
-- 🎨 Estilos personalizados con CSS (sin Tailwind por compatibilidad con el SDK)
+![typescript](https://img.shields.io/static/v1?message=typescript&logo=typescript&label=&color=3178C6&logoColor=white&labelColor=&style=for-the-badge)
+![react](https://img.shields.io/static/v1?message=react&logo=react&label=&color=61DAFB&logoColor=black&labelColor=&style=for-the-badge)
+![vite](https://img.shields.io/static/v1?message=vite&logo=vite&label=&color=646CFF&logoColor=white&labelColor=&style=for-the-badge)
+![reactrouter](https://img.shields.io/static/v1?message=React-Router-DOM&logo=reactrouter&label=&color=CA4245&logoColor=white&labelColor=&style=for-the-badge)
 
+</div>
+
+> 🎨 Estilos personalizados con CSS (sin Tailwind por compatibilidad con el SDK)
 
 ## 🚀 ¿Cómo iniciar el proyecto?
 
@@ -246,9 +278,15 @@ Vista de encuesta con campos para responder
 La carpeta `sdk` contiene el paquete reutilizable que expone el componente `SurveyWidget`, el cual permite integrar encuestas de forma sencilla en cualquier aplicación.  
 Este SDK está hecho en **React** y **TypeScript**, y es el corazón de la funcionalidad para contestar encuestas conectadas al backend.
 
+
 ## ⚙️ Tecnologías usadas
- 
-<img src="https://skillicons.dev/icons?i=react,typescript" alt="frontend Skills" /> 
+
+<div align="left">
+
+![typescript](https://img.shields.io/static/v1?message=typescript&logo=typescript&label=&color=3178C6&logoColor=white&labelColor=&style=for-the-badge)
+![react](https://img.shields.io/static/v1?message=react&logo=react&label=&color=61DAFB&logoColor=black&labelColor=&style=for-the-badge)
+
+</div>
 
 ---
 
@@ -381,4 +419,9 @@ La API está preparada para recibir datos seguros y evitar inyecciones SQL media
 
 </details>
 
+<div align="left">
 
+[![NPM](https://img.shields.io/static/v1?message=paquete-NPM&logo=NPM&label=&color=CD3E3D&logoColor=white&labelColor=&style=for-the-badge)](https://www.npmjs.com/package/survey-container)
+[![GITHUB](https://img.shields.io/static/v1?message=Repositorio-de-demo-con-el-uso-del-paquete&logo=Github&label=&color=22262A&logoColor=white&labelColor=&style=for-the-badge)](https://github.com/FernadoCodeDev/demo-survey-container)
+[![WORDPRESS](https://img.shields.io/static/v1?message=página-de-documentación&logo=WordPress&label=&color=1790c8&logoColor=white&labelColor=&style=for-the-badge)](https://surveycontainer.wordpress.com/)
+</div>
