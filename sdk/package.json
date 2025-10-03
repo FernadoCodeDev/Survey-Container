@@ -1,6 +1,6 @@
 {
   "name": "survey-container",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -9,9 +9,13 @@
     "copy:styles": "cpx \"src/styles/**\" dist/styles"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "Fernando Mejia",
+  "license": "MIT",
+  "description": "a modular, reusable, and scalable internal survey system.",
+   "repository": {
+    "type": "git",
+    "url": "https://github.com/FernadoCodeDev/Survey-Container-Documentation"
+  },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.11",
     "dotenv": "^17.2.0",
